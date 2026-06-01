@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANUBIS CRYPTO — Premium Crypto Media Network · Paid Placements</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#000; --dark:#080808; --card:#0d0d0d; --card2:#111;
+  --white:#f0f0f0; --grey:#555; --lgrey:#888;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.12);
+  --accent:#c8ff00; --accent2:rgba(200,255,0,0.15); --accent3:rgba(200,255,0,0.06);
+  --glow:0 0 24px rgba(200,255,0,0.35);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
+
+body::before{content:'';position:fixed;inset:0;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-mark{width:38px;height:38px;border:1px solid var(--accent);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;color:var(--accent);
+  font-family:'Space Mono',monospace;font-weight:700;font-size:16px;
+  box-shadow:0 0 16px rgba(200,255,0,0.25), inset 0 0 12px rgba(200,255,0,0.05);}
+.nav-logo-text{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--white);letter-spacing:0.1em;}
+.nav-links{display:flex;align-items:center;gap:36px;}
+.nav-links a{font-size:12px;color:var(--lgrey);text-decoration:none;letter-spacing:0.06em;font-family:'Space Mono',monospace;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:transparent!important;border:1px solid var(--border2)!important;color:var(--white)!important;
+  padding:8px 20px;border-radius:4px;font-size:12px!important;cursor:pointer;transition:all .2s!important;}
+.nav-cta:hover{border-color:var(--accent)!important;color:var(--accent)!important;}
+
+/* hamburger */
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.nav-burger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s;}
+.nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-burger.open span:nth-child(2){opacity:0;}
+.nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;z-index:499;
+  background:rgba(0,0,0,0.97);backdrop-filter:blur(20px);
+  padding:28px 24px;border-bottom:1px solid var(--border);
+  flex-direction:column;gap:0;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.06em;
+  color:var(--lgrey);text-decoration:none;padding:16px 0;
+  border-bottom:1px solid var(--border);transition:color .2s;}
+.mobile-menu a:hover{color:var(--white);}
+.mobile-menu .m-cta{color:var(--accent)!important;border-bottom:none!important;margin-top:8px;}
+
+.scroll-line{position:fixed;top:0;left:0;height:2px;z-index:1000;background:var(--accent);box-shadow:var(--glow);width:0%;}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;padding:120px 48px 80px;}
+.hero-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:10px;}
+.hero-label::before{content:'';width:24px;height:1px;background:var(--accent);box-shadow:var(--glow);}
+.hero-title{font-size:clamp(42px,7vw,96px);font-weight:700;line-height:1.0;letter-spacing:-0.03em;max-width:980px;margin-bottom:32px;}
+.hero-title .accent-word{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.3);}
+.hero-title .accent-hl{color:var(--accent);text-shadow:0 0 40px rgba(200,255,0,0.4);}
+.hero-sub{font-size:16px;color:var(--lgrey);max-width:560px;line-height:1.7;margin-bottom:52px;}
+.hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.btn-primary{background:var(--accent);color:#000;padding:14px 32px;border-radius:4px;font-weight:700;
+  font-size:13px;text-decoration:none;letter-spacing:0.04em;
+  box-shadow:0 0 32px rgba(200,255,0,0.3);transition:all .2s;}
+.btn-primary:hover{box-shadow:0 0 52px rgba(200,255,0,0.5);transform:translateY(-2px);}
+.btn-secondary{color:var(--lgrey);font-size:13px;text-decoration:none;letter-spacing:0.04em;
+  display:flex;align-items:center;gap:8px;transition:color .2s;}
+.btn-secondary:hover{color:var(--white);}
+.btn-secondary::after{content:'→';transition:transform .2s;}
+.btn-secondary:hover::after{transform:translateX(4px);}
+.hero-stats{position:absolute;bottom:60px;right:48px;display:flex;gap:48px;z-index:1;}
+.stat-item{text-align:right;}
+.stat-num{font-family:'Space Mono',monospace;font-size:28px;font-weight:700;color:var(--white);line-height:1;}
+.stat-num span{color:var(--accent);}
+.stat-label{font-size:10px;color:var(--grey);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px;}
+.hero-deco{position:absolute;top:50%;right:32px;transform:translateY(-50%);width:710px;height:710px;z-index:0;}
+#particleCanvas{display:block;}
+
+@media(max-width:900px){
+  .hero-deco{display:block!important;width:546px;height:546px;top:42%;left:50%;right:auto;transform:translate(-50%,-50%);opacity:0.65;}
+  #particleCanvas{width:546px!important;height:546px!important;}
+}
+@media(max-width:480px){
+  .hero-deco{width:440px;height:440px;opacity:0.55;}
+  #particleCanvas{width:440px!important;height:440px!important;}
+}
+
+/* ── SECTION BASE ── */
+section{position:relative;z-index:1;padding:100px 48px;}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:60px;border-bottom:1px solid var(--border);padding-bottom:24px;}
+.section-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;
+  color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
+.section-title{font-size:clamp(28px,3.5vw,44px);font-weight:700;letter-spacing:-0.02em;line-height:1.1;}
+.section-count{font-family:'Space Mono',monospace;font-size:11px;color:var(--grey);letter-spacing:0.1em;}
+
+/* ── MARQUEE ── */
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  overflow:hidden;padding:18px 0;position:relative;z-index:1;}
+.marquee-track{display:flex;gap:0;animation:marquee-go 30s linear infinite;white-space:nowrap;}
+.marquee-item{display:inline-flex;align-items:center;gap:16px;padding:0 32px;
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.15em;color:var(--grey);text-transform:uppercase;}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+@keyframes marquee-go{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── SERVICES (Placement formats) ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.service-card{background:var(--black);padding:40px 36px;position:relative;overflow:hidden;transition:background .3s;}
+.service-card:hover{background:var(--card);}
+.service-card:hover .service-icon{box-shadow:var(--glow);border-color:var(--accent);}
+.service-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:0.15em;margin-bottom:28px;}
+.service-icon{width:44px;height:44px;border:1px solid var(--border2);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:24px;transition:all .3s;font-size:20px;}
+.service-name{font-size:18px;font-weight:600;margin-bottom:12px;letter-spacing:-0.01em;}
+.service-desc{font-size:13px;color:var(--lgrey);line-height:1.7;}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width .4s ease;}
+.service-card:hover::after{width:100%;}
+
+/* ── PROCESS ── */
+.process-scene{position:relative;}
+.process-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.process-track::before{
+  content:'';position:absolute;top:52px;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),var(--accent),transparent);
+  opacity:0;transition:opacity .6s .4s;z-index:0;
+}
+.process-track.animated::before{opacity:.3;}
+.pstep{
+  padding:40px 28px 36px;border:1px solid var(--border);border-right:none;
+  position:relative;z-index:1;background:var(--black);
+  opacity:0;transform:translateY(32px);
+  transition:opacity .6s ease,transform .6s ease,background .25s;
+}
+.pstep:last-child{border-right:1px solid var(--border);}
+.pstep.visible{opacity:1;transform:translateY(0);}
+.pstep:hover{background:var(--card);}
+.pstep:hover .ps-dot{box-shadow:0 0 0 6px var(--accent2),var(--glow);}
+.pstep:hover .ps-num{color:var(--accent);}
+
+.ps-dot{
+  width:10px;height:10px;border-radius:50%;background:var(--accent);
+  margin-bottom:28px;
+  box-shadow:0 0 0 3px var(--accent3),var(--glow);
+  transition:box-shadow .3s;
+  animation:dot-breathe 3s ease-in-out infinite;
+}
+.pstep:nth-child(2) .ps-dot{animation-delay:.5s;}
+.pstep:nth-child(3) .ps-dot{animation-delay:1s;}
+.pstep:nth-child(4) .ps-dot{animation-delay:1.5s;}
+@keyframes dot-breathe{
+  0%,100%{box-shadow:0 0 0 3px var(--accent3),0 0 8px rgba(200,255,0,0.3);}
+  50%{box-shadow:0 0 0 8px rgba(200,255,0,0.06),0 0 24px rgba(200,255,0,0.5);}
+}
+.ps-line{
+  position:absolute;top:44px;right:-1px;width:0;height:1px;
+  background:linear-gradient(90deg,var(--accent),rgba(200,255,0,0.2));
+  z-index:2;transition:width .8s cubic-bezier(.16,1,.3,1);
+}
+.pstep.visible .ps-line{width:100%;}
+.pstep:last-child .ps-line{display:none;}
+.ps-num{font-family:'Space Mono',monospace;font-size:9px;color:var(--grey);letter-spacing:0.15em;margin-bottom:16px;transition:color .25s;}
+.ps-title{font-size:17px;font-weight:600;margin-bottom:10px;letter-spacing:-0.01em;line-height:1.2;}
+.ps-desc{font-size:13px;color:var(--lgrey);line-height:1.65;margin-bottom:20px;}
+.ps-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:var(--accent);
+  text-transform:uppercase;border:1px solid var(--accent2);padding:4px 10px;border-radius:2px;display:inline-block;}
+
+/* ── CLIENT SECTION (was AI section) ── */
+.ai-section{background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.ai-headline{font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin-bottom:20px;}
+.ai-headline em{font-style:normal;color:var(--accent);}
+.ai-text{font-size:15px;color:var(--lgrey);line-height:1.75;margin-bottom:28px;}
+.ai-list{list-style:none;margin-bottom:36px;}
+.ai-list li{font-size:14px;color:var(--white);padding:10px 0;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:14px;font-family:'Space Grotesk',sans-serif;}
+.ai-list li:last-child{border-bottom:none;}
+.ai-list li::before{content:'▸';color:var(--accent);font-family:'Space Mono',monospace;}
+.ai-right{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.ai-metric{background:var(--black);padding:28px 24px;}
+.ai-metric-val{font-family:'Space Mono',monospace;font-size:32px;font-weight:700;color:var(--white);line-height:1;margin-bottom:6px;}
+.ai-metric-val span{color:var(--accent);}
+.ai-metric-label{font-size:12px;color:var(--grey);line-height:1.5;}
+
+/* ── SITES LIST (compact vertical) ── */
+.sites-section{position:relative;}
+.sites-list{border:1px solid var(--border);background:var(--card);}
+.site-row{
+  display:grid;
+  grid-template-columns:60px 1fr auto 32px;
+  align-items:center;gap:20px;
+  padding:16px 24px;border-bottom:1px solid var(--border);
+  text-decoration:none;color:inherit;
+  transition:background .2s;position:relative;
+}
+.site-row:last-child{border-bottom:none;}
+.site-row:hover{background:#0e0e0e;}
+.site-row:hover .site-arrow{color:var(--accent);transform:translateX(4px);}
+.site-row:hover .site-num{color:var(--accent);}
+.site-row:hover .site-title{color:var(--accent);}
+.site-row::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--accent);box-shadow:var(--glow);
+  transition:width .2s ease;
+}
+.site-row:hover::before{width:2px;}
+
+.site-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:0.12em;transition:color .2s;}
+.site-info{display:flex;flex-direction:column;gap:4px;min-width:0;}
+.site-title{font-size:15px;font-weight:600;letter-spacing:-0.01em;line-height:1.2;color:var(--white);transition:color .2s;}
+.site-url{font-family:'Space Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:0.02em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.site-tags{display:flex;flex-wrap:nowrap;gap:6px;}
+.site-tag{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--grey);border:1px solid var(--border);padding:3px 8px;border-radius:2px;white-space:nowrap;}
+.site-tag.tier1{color:var(--accent);border-color:var(--accent2);background:var(--accent3);}
+.site-tag.tool{color:#00d4ff;border-color:rgba(0,212,255,0.25);}
+.site-arrow{font-family:'Space Mono',monospace;font-size:16px;color:var(--lgrey);transition:all .2s;text-align:right;}
+
+@media(max-width:900px){
+  .site-row{grid-template-columns:36px 1fr 28px;gap:14px;padding:14px 18px;}
+  .site-tags{display:none;}
+  .site-num{font-size:9px;}
+}
+
+/* Filter buttons */
+.sites-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.filter-btn{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--lgrey);background:transparent;border:1px solid var(--border2);
+  padding:8px 16px;border-radius:4px;cursor:pointer;transition:all .2s;}
+.filter-btn:hover{color:var(--white);border-color:var(--accent);}
+.filter-btn.active{color:var(--accent);border-color:var(--accent);background:var(--accent3);}
+
+/* ── CTA ── */
+.cta-section{padding:120px 48px;text-align:center;position:relative;z-index:1;border-top:1px solid var(--border);}
+.cta-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.2em;color:var(--accent);
+  text-transform:uppercase;margin-bottom:24px;}
+.cta-title{font-size:clamp(32px,5vw,64px);font-weight:700;letter-spacing:-0.03em;line-height:1.05;margin-bottom:20px;}
+.cta-title em{font-style:normal;color:var(--accent);}
+.cta-sub{font-size:15px;color:var(--lgrey);margin-bottom:48px;max-width:520px;margin-inline:auto;line-height:1.7;}
+.cta-tg{
+  display:inline-flex;align-items:center;gap:14px;
+  font-family:'Space Mono',monospace;font-size:16px;color:var(--white);text-decoration:none;
+  padding:18px 36px;border:1px solid var(--accent);border-radius:6px;background:var(--accent3);
+  letter-spacing:0.06em;transition:all .2s;
+}
+.cta-tg:hover{background:var(--accent);color:#000;box-shadow:var(--glow);}
+.cta-tg-icon{font-size:18px;}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;padding:32px 48px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{font-family:'Space Mono',monospace;font-size:12px;color:var(--grey);letter-spacing:0.06em;}
+.footer-copy{font-family:'Space Mono',monospace;font-size:10px;color:var(--grey);letter-spacing:0.05em;}
+.footer-links{display:flex;gap:28px;}
+.footer-links a{font-family:'Space Mono',monospace;font-size:10px;color:var(--grey);
+  text-decoration:none;letter-spacing:0.08em;transition:color .2s;}
+.footer-links a:hover{color:var(--white);}
+
+/* ── PULSE CIRCLE (mobile hero) ── */
+.hero-pulse-bg{display:none;position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);
+  width:320px;height:320px;border-radius:50%;z-index:0;pointer-events:none;}
+.hero-pulse-bg::before,.hero-pulse-bg span{content:'';position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(200,255,0,0.25);}
+.hero-pulse-bg::before{animation:pulse-ring 3s ease-out infinite;}
+.hero-pulse-bg span{display:block;animation:pulse-ring 3s ease-out infinite .8s;}
+.hero-pulse-bg::after{content:'';position:absolute;inset:auto;width:6px;height:6px;top:50%;left:50%;
+  transform:translate(-50%,-50%);background:rgba(200,255,0,.8);border-radius:50%;
+  box-shadow:0 0 20px rgba(200,255,0,.6);animation:dot-p 3s ease-in-out infinite;}
+@keyframes pulse-ring{0%{transform:scale(.7);opacity:.6;border-color:rgba(200,255,0,.4);}70%{transform:scale(1.15);opacity:.15;}100%{transform:scale(1.3);opacity:0;}}
+@keyframes dot-p{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .sites-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .nav-burger{display:flex;}
+  section{padding:70px 20px;}
+  .hero{padding:100px 20px 80px;}
+  .hero-stats{display:none;}
+  .hero-pulse-bg{display:none;}
+  .services-grid,.sites-grid{grid-template-columns:1fr;}
+  .ai-grid{grid-template-columns:1fr;gap:40px;}
+  .process-track{grid-template-columns:1fr 1fr;}
+  .pstep{border-right:1px solid var(--border)!important;}
+  footer{flex-direction:column;gap:16px;text-align:center;}
+  .footer-links{justify-content:center;}
+  .section-header{flex-direction:column;align-items:flex-start;gap:8px;}
+  .cta-section{padding:80px 20px;}
+}
+@media(max-width:600px){
+  .process-track{grid-template-columns:1fr;}
+  .pstep{border-right:1px solid var(--border)!important;}
+  .hero-title{font-size:clamp(36px,9vw,60px);}
+  .btn-primary,.btn-secondary{font-size:12px;}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-line" id="scrollLine"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <span class="nav-logo-text">ANUBIS CRYPTO</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#clients">Clients</a>
+    <a href="#services">Formats</a>
+    <a href="#process">Process</a>
+    <a href="#sites">Network</a>
+    <a href="https://t.me/FXSCXI" target="_blank" class="nav-cta">Contact</a>
+  </div>
+  <button class="nav-burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mm-link">About</a>
+  <a href="#clients" class="mm-link">Clients</a>
+  <a href="#services" class="mm-link">Formats</a>
+  <a href="#process" class="mm-link">Process</a>
+  <a href="#sites" class="mm-link">Network</a>
+  <a href="https://t.me/FXSCXI" target="_blank" class="m-cta">Contact via Telegram →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-label">Crypto Media Network × Paid Placements</div>
+  <h1 class="hero-title">
+    Premium <span class="accent-word">SEO traffic</span><br>
+    for crypto brands<br>
+    that <span class="accent-hl">convert</span>
+  </h1>
+  <p class="hero-sub">ANUBIS CRYPTO operates a portfolio of high-intent SEO properties in the crypto vertical. We sell sponsored placements, top positions in rankings, native integrations and affiliate slots — directly to exchanges, wallets, DeFi protocols and infrastructure projects.</p>
+  <div class="hero-actions">
+    <a href="#sites" class="btn-primary">View network</a>
+    <a href="https://t.me/FXSCXI" target="_blank" class="btn-secondary">Talk to us in Telegram</a>
+  </div>
+  <div class="hero-pulse-bg" aria-hidden="true"><span></span></div>
+  <div class="hero-deco" aria-hidden="true">
+    <canvas id="particleCanvas" width="420" height="420"></canvas>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">13<span>+</span></div><div class="stat-label">Live properties</div></div>
+    <div class="stat-item"><div class="stat-num"><span>US</span></div><div class="stat-label">Primary geo</div></div>
+    <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-label">Commercial intent</div></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Sponsored Articles</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Top Placements</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Native Integrations</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Affiliate Slots</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Comparison Tables</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>CEX</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>DeFi</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Wallets</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>L2 / L1</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>RPC / Infra</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Crypto Cards</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Tax Software</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Sponsored Articles</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Top Placements</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Native Integrations</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Affiliate Slots</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Comparison Tables</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>CEX</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>DeFi</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Wallets</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>L2 / L1</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>RPC / Infra</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Crypto Cards</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Tax Software</span>
+  </div>
+</div>
+
+<!-- ABOUT IDEA -->
+<section id="about">
+  <div class="section-header">
+    <div><div class="section-label">What we are</div><h2 class="section-title">The idea</h2></div>
+    <div class="section-count">01 — overview</div>
+  </div>
+  <div class="ai-grid">
+    <div class="ai-left">
+      <h2 class="ai-headline">A network of crypto<br>SEO properties<br>built to <em>monetize traffic</em></h2>
+      <p class="ai-text">ANUBIS CRYPTO is not a single magazine. It is a portfolio of carefully positioned SEO domains and pages targeting high-intent crypto queries in the US market — «best crypto wallets», «best altcoins to buy», «mining calculator», «top airdrops», price predictions and educational guides.</p>
+      <p class="ai-text">Every page is built with one purpose: <strong style="color:var(--white);font-weight:500;">to convert organic traffic into measurable outcomes for our partners</strong>. We sell access in three currencies: sponsored content, top placements in comparison tables, and direct affiliate integrations with tracked attribution.</p>
+    </div>
+    <div class="ai-right">
+      <div class="ai-metric"><div class="ai-metric-val">13<span>+</span></div><div class="ai-metric-label">SEO properties<br>in the network</div></div>
+      <div class="ai-metric"><div class="ai-metric-val">100<span>%</span></div><div class="ai-metric-label">commercial-intent<br>or evergreen content</div></div>
+      <div class="ai-metric"><div class="ai-metric-val"><span>US</span></div><div class="ai-metric-label">primary &amp; only<br>target geo</div></div>
+      <div class="ai-metric"><div class="ai-metric-val">3<span>×</span></div><div class="ai-metric-label">avg RPM uplift<br>vs generic display</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients" class="ai-section">
+  <div class="section-header">
+    <div><div class="section-label">Who we work with</div><h2 class="section-title">Our partners</h2></div>
+    <div class="section-count">04 — verticals</div>
+  </div>
+  <div class="ai-grid">
+    <div class="ai-left">
+      <h2 class="ai-headline">We work with crypto<br>brands that need<br><em>qualified US traffic</em></h2>
+      <p class="ai-text" style="margin-bottom:14px;color:var(--accent);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">▸ Primary &amp; only target geo: United States</p>
+      <p class="ai-text">Our placements are most valuable to projects with a clear conversion goal — sign-ups, deposits, swaps, wallet downloads, hardware purchases. We are not a display-ads network; we curate partnerships where our audience matches the partner&rsquo;s ideal user. Full traffic, geo and engagement breakdown shared under NDA on request.</p>
+      <ul class="ai-list">
+        <li>CEX exchanges — tier-1 and emerging</li>
+        <li>DeFi protocols — L2s, perp-DEX, restaking, yield aggregators</li>
+        <li>Wallets — hardware and software</li>
+        <li>Infrastructure — RPC providers, node services, dev tools</li>
+        <li>Adjacent — tax software, crypto cards, on-ramps</li>
+      </ul>
+      <a href="https://t.me/FXSCXI" target="_blank" class="btn-primary">Request media kit</a>
+    </div>
+    <div class="ai-right">
+      <div class="ai-metric"><div class="ai-metric-val">CEX</div><div class="ai-metric-label">tier-1 exchanges<br>top placements</div></div>
+      <div class="ai-metric"><div class="ai-metric-val">DeFi</div><div class="ai-metric-label">L2 &amp; perp-DEX<br>sponsored articles</div></div>
+      <div class="ai-metric"><div class="ai-metric-val">Wallet</div><div class="ai-metric-label">hardware + software<br>review listings</div></div>
+      <div class="ai-metric"><div class="ai-metric-val">Infra</div><div class="ai-metric-label">RPC, tax, cards<br>B2B partnerships</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES — Placement formats -->
+<section id="services">
+  <div class="section-header">
+    <div><div class="section-label">What we sell</div><h2 class="section-title">Placement formats</h2></div>
+    <div class="section-count">06 — options</div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-num">01</div><div class="service-icon">◈</div><div class="service-name">Sponsored articles</div><p class="service-desc">Long-form editorial content with your project as the central case study. Indexed, evergreen, drives organic + direct traffic for years.</p></div>
+    <div class="service-card"><div class="service-num">02</div><div class="service-icon">▦</div><div class="service-name">Top placements</div><p class="service-desc">Position 1–3 in our «best of» pages (best wallets, best cards, best altcoins). Highest converting real estate we sell.</p></div>
+    <div class="service-card"><div class="service-num">03</div><div class="service-icon">⬡</div><div class="service-name">Comparison tables</div><p class="service-desc">Native inclusion in sortable comparison tables with CTAs. Direct sign-up flow with tracked attribution.</p></div>
+    <div class="service-card"><div class="service-num">04</div><div class="service-icon">◎</div><div class="service-name">Affiliate integrations</div><p class="service-desc">Performance-based placements with full UTM + postback architecture. SubID tracking down to page-level conversions.</p></div>
+    <div class="service-card"><div class="service-num">05</div><div class="service-icon">⬕</div><div class="service-name">Tools integration</div><p class="service-desc">Branded CTAs and partner links inside our profit/mining calculators — highest commercial-intent surface we have.</p></div>
+    <div class="service-card"><div class="service-num">06</div><div class="service-icon">✦</div><div class="service-name">Custom packages</div><p class="service-desc">Multi-page exclusive campaigns, category lockups, launch boosts. We build the package around your KPI.</p></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-header">
+    <div><div class="section-label">How we work</div><h2 class="section-title">Process</h2></div>
+    <div class="section-count">04 — stages</div>
+  </div>
+  <div class="process-scene">
+    <div class="process-track" id="processTrack">
+      <div class="pstep" style="transition-delay:.0s">
+        <div class="ps-line"></div>
+        <div class="ps-dot"></div>
+        <div class="ps-num">01</div>
+        <div class="ps-title">Discovery call</div>
+        <p class="ps-desc">30-min call. We understand your KPI, geo, target user. You see live traffic stats and matching pages from our network.</p>
+        <span class="ps-tag">Day 0–1</span>
+      </div>
+      <div class="pstep" style="transition-delay:.15s">
+        <div class="ps-line"></div>
+        <div class="ps-dot"></div>
+        <div class="ps-num">02</div>
+        <div class="ps-title">Custom proposal</div>
+        <p class="ps-desc">We build a placement package matched to your goal — pages, formats, duration, expected reach. Transparent pricing.</p>
+        <span class="ps-tag">Day 2–3</span>
+      </div>
+      <div class="pstep" style="transition-delay:.3s">
+        <div class="ps-line"></div>
+        <div class="ps-dot"></div>
+        <div class="ps-num">03</div>
+        <div class="ps-title">Production &amp; launch</div>
+        <p class="ps-desc">Content drafted, tracking wired, placements deployed. Postback + UTM on day one — no «we&rsquo;ll track it later».</p>
+        <span class="ps-tag">Day 4–10</span>
+      </div>
+      <div class="pstep" style="transition-delay:.45s">
+        <div class="ps-dot"></div>
+        <div class="ps-num">04</div>
+        <div class="ps-title">Reporting &amp; renewal</div>
+        <p class="ps-desc">Weekly dashboard: impressions, clicks, conversions per page. Optimization on the fly. Renewal options after 30 days.</p>
+        <span class="ps-tag">Ongoing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITES NETWORK (was Cases) -->
+<section id="sites" class="sites-section">
+  <div class="section-header">
+    <div><div class="section-label">Our network</div><h2 class="section-title">Available properties</h2></div>
+    <div class="section-count">13 — live pages</div>
+  </div>
+
+  <div class="sites-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="best">Best Of (Tier 1)</button>
+    <button class="filter-btn" data-filter="tool">Tools</button>
+    <button class="filter-btn" data-filter="comparison">Comparisons</button>
+    <button class="filter-btn" data-filter="prediction">Predictions</button>
+    <button class="filter-btn" data-filter="education">Education</button>
+    <button class="filter-btn" data-filter="hub">Hub</button>
+  </div>
+
+  <div class="sites-list" id="sitesGrid">
+
+    <a href="https://bitcoinfoundation.org/news/analysis/best-crypto-wallets/" target="_blank" class="site-row" data-cat="best">
+      <span class="site-num">01 / T1</span>
+      <div class="site-info">
+        <div class="site-title">Best Crypto Wallets</div>
+        <div class="site-url">bitcoinfoundation.org/news/analysis/best-crypto-wallets/</div>
+      </div>
+      <div class="site-tags"><span class="site-tag tier1">Tier 1</span><span class="site-tag">Best Of</span><span class="site-tag">Hardware</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/opinion/best-crypto-cards/" target="_blank" class="site-row" data-cat="best">
+      <span class="site-num">02 / T1</span>
+      <div class="site-info">
+        <div class="site-title">Best Crypto Cards</div>
+        <div class="site-url">bitcoinfoundation.org/news/opinion/best-crypto-cards/</div>
+      </div>
+      <div class="site-tags"><span class="site-tag tier1">Tier 1</span><span class="site-tag">Best Of</span><span class="site-tag">High CPA</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/altcoins/best-altcoins-to-buy/" target="_blank" class="site-row" data-cat="best">
+      <span class="site-num">03 / T1</span>
+      <div class="site-info">
+        <div class="site-title">Best Altcoins to Buy</div>
+        <div class="site-url">bitcoinfoundation.org/news/altcoins/best-altcoins-to-buy/</div>
+      </div>
+      <div class="site-tags"><span class="site-tag tier1">Tier 1</span><span class="site-tag">Best Of</span><span class="site-tag">CEX-friendly</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/analysis/best-crypto-airdrops-2026/" target="_blank" class="site-row" data-cat="best">
+      <span class="site-num">04 / T1</span>
+      <div class="site-info">
+        <div class="site-title">Best Crypto Airdrops 2026</div>
+        <div class="site-url">bitcoinfoundation.org/news/analysis/best-crypto-airdrops-2026/</div>
+      </div>
+      <div class="site-tags"><span class="site-tag tier1">Tier 1</span><span class="site-tag">Best Of</span><span class="site-tag">DeFi</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/altcoins/top-5-altcoins-that-could-surge-10x-100x-bull-run-in-2026-high-potential-crypto-picks/" target="_blank" class="site-row" data-cat="best">
+      <span class="site-num">05 / T1</span>
+      <div class="site-info">
+        <div class="site-title">Top 5 Altcoins · 10x–100x Bull Run 2026</div>
+        <div class="site-url">bitcoinfoundation.org/news/altcoins/top-5-altcoins-that-could-surge-10x-100x.../</div>
+      </div>
+      <div class="site-tags"><span class="site-tag tier1">Tier 1</span><span class="site-tag">Picks</span><span class="site-tag">High Intent</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/tools/profit-calculator/" target="_blank" class="site-row" data-cat="tool">
+      <span class="site-num">06 / TOOL</span>
+      <div class="site-info">
+        <div class="site-title">Profit Calculator</div>
+        <div class="site-url">bitcoinfoundation.org/tools/profit-calculator/</div>
+      </div>
+      <div class="site-tags"><span class="site-tag tool">Tool</span><span class="site-tag">High Intent</span><span class="site-tag">CTA Surface</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/tools/mining-calculator/" target="_blank" class="site-row" data-cat="tool">
+      <span class="site-num">07 / TOOL</span>
+      <div class="site-info">
+        <div class="site-title">Mining Calculator</div>
+        <div class="site-url">bitcoinfoundation.org/tools/mining-calculator/</div>
+      </div>
+      <div class="site-tags"><span class="site-tag tool">Tool</span><span class="site-tag">Hardware</span><span class="site-tag">Energy</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/altcoins/understanding-altcoin-season-in-2026-what-are-altcoin-market-cycles/" target="_blank" class="site-row" data-cat="education">
+      <span class="site-num">08 / EDU</span>
+      <div class="site-info">
+        <div class="site-title">Understanding Altcoin Season 2026</div>
+        <div class="site-url">bitcoinfoundation.org/news/altcoins/understanding-altcoin-season-in-2026.../</div>
+      </div>
+      <div class="site-tags"><span class="site-tag">Education</span><span class="site-tag">Evergreen</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/bitcoin/zcash-vs-bitcoin-in-2026-is-zcash-a-better-privacy-coin-than-bitcoin-for-investors/" target="_blank" class="site-row" data-cat="comparison">
+      <span class="site-num">09 / VS</span>
+      <div class="site-info">
+        <div class="site-title">Zcash vs Bitcoin 2026 — Bitcoin category</div>
+        <div class="site-url">bitcoinfoundation.org/news/bitcoin/zcash-vs-bitcoin-in-2026.../</div>
+      </div>
+      <div class="site-tags"><span class="site-tag">Comparison</span><span class="site-tag">Privacy</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/altcoins/zcash-vs-bitcoin-in-2026-is-zcash-a-better-privacy-coin-than-bitcoin-for-investors/" target="_blank" class="site-row" data-cat="comparison">
+      <span class="site-num">10 / VS</span>
+      <div class="site-info">
+        <div class="site-title">Zcash vs Bitcoin 2026 — Altcoins category</div>
+        <div class="site-url">bitcoinfoundation.org/news/altcoins/zcash-vs-bitcoin-in-2026.../</div>
+      </div>
+      <div class="site-tags"><span class="site-tag">Comparison</span><span class="site-tag">Privacy</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/altcoins/zcash-price-prediction-2026-how-high-can-zec-go/" target="_blank" class="site-row" data-cat="prediction">
+      <span class="site-num">11 / PRED</span>
+      <div class="site-info">
+        <div class="site-title">Zcash Price Prediction 2026</div>
+        <div class="site-url">bitcoinfoundation.org/news/altcoins/zcash-price-prediction-2026.../</div>
+      </div>
+      <div class="site-tags"><span class="site-tag">Prediction</span><span class="site-tag">Privacy</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/news/altcoins/ravedao-price-prediction-2026-can-rave-break-into-top-20/" target="_blank" class="site-row" data-cat="prediction">
+      <span class="site-num">12 / PRED</span>
+      <div class="site-info">
+        <div class="site-title">RaveDAO Price Prediction 2026</div>
+        <div class="site-url">bitcoinfoundation.org/news/altcoins/ravedao-price-prediction-2026.../</div>
+      </div>
+      <div class="site-tags"><span class="site-tag">Prediction</span><span class="site-tag">DeFi</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+    <a href="https://bitcoinfoundation.org/" target="_blank" class="site-row" data-cat="hub">
+      <span class="site-num">13 / HUB</span>
+      <div class="site-info">
+        <div class="site-title">Bitcoinfoundation.org — Hub</div>
+        <div class="site-url">bitcoinfoundation.org/</div>
+      </div>
+      <div class="site-tags"><span class="site-tag">Hub</span><span class="site-tag">Branded</span><span class="site-tag">Featured</span></div>
+      <span class="site-arrow">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-label">Let&rsquo;s talk</div>
+  <h2 class="cta-title">Ready to put your brand<br>in front of <em>qualified crypto traffic</em>?</h2>
+  <p class="cta-sub">Drop us a message in Telegram with your goal — sign-ups, deposits, swaps, awareness — and we&rsquo;ll come back with a tailored placement package within 24 hours.</p>
+  <a href="https://t.me/FXSCXI" target="_blank" class="cta-tg">
+    <span class="cta-tg-icon">✈</span>
+    <span>@FXSCXI</span>
+    <span style="opacity:0.5">→</span>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ANUBIS CRYPTO © 2026</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Formats</a>
+    <a href="#sites">Network</a>
+    <a href="https://t.me/FXSCXI" target="_blank">Telegram</a>
+  </div>
+  <div class="footer-copy">Crypto Media × Paid Placements</div>
+</footer>
+
+<script>
+// Scroll progress
+const sl=document.getElementById('scrollLine');
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop;
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  sl.style.width=(s/h*100)+'%';
+});
+
+// Hamburger menu
+const burger=document.getElementById('burger');
+const mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{
+  burger.classList.toggle('open');
+  mm.classList.toggle('open');
+});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  burger.classList.remove('open');mm.classList.remove('open');
+}));
+
+// Process step animation
+const track=document.getElementById('processTrack');
+if(track){
+  const pObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        track.classList.add('animated');
+        track.querySelectorAll('.pstep').forEach(s=>s.classList.add('visible'));
+        pObs.disconnect();
+      }
+    });
+  },{threshold:0.2});
+  pObs.observe(track);
+}
+
+// Sites filter
+document.querySelectorAll('.filter-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const f=b.dataset.filter;
+    document.querySelectorAll('.site-row').forEach(c=>{
+      if(f==='all'||c.dataset.cat===f){c.style.display='';}
+      else{c.style.display='none';}
+    });
+  });
+});
+
+// Particle sphere (verbatim from FX Social Club)
+(function(){
+  const canvas=document.getElementById('particleCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const w=window.innerWidth;
+  const isSmall=w<=480;
+  const isMobile=w<=900;
+  const SIZE=isSmall?440:isMobile?546:710;
+  canvas.width=SIZE;canvas.height=SIZE;
+  const CX=SIZE/2,CY=SIZE/2,R=isSmall?180:isMobile?230:275,TOTAL=isSmall?900:isMobile?1200:1500;
+  let hovering=false,rotX=0,rotY=0,tRX=0,tRY=0,pulseTime=0,autoAngle=0;
+  const pts=[];
+  const g=Math.PI*(3-Math.sqrt(5));
+  for(let i=0;i<TOTAL;i++){
+    const y=1-(i/(TOTAL-1))*2,r=Math.sqrt(1-y*y),t=g*i;
+    pts.push({ox:Math.cos(t)*r,oy:y,oz:Math.sin(t)*r,sz:Math.random()*1.2+0.3,br:Math.random()*.5+.3});
+  }
+  const hero=document.querySelector('.hero');
+  if(!isMobile){
+    hero.addEventListener('mousemove',e=>{const rc=canvas.getBoundingClientRect();hovering=true;tRY=((e.clientX-rc.left-CX)/CX)*.6;tRX=((e.clientY-rc.top-CY)/CY)*-.4;});
+    hero.addEventListener('mouseleave',()=>{hovering=false;tRX=0;tRY=0;});
+  }
+  function draw(){
+    ctx.clearRect(0,0,SIZE,SIZE);
+    rotX+=(tRX-rotX)*.06;rotY+=(tRY-rotY)*.06;
+    if(!hovering)autoAngle+=isMobile?.004:.002;
+    pulseTime+=.025;
+    const ps=1+Math.sin(pulseTime)*(isMobile?.07:.04);
+    const cRX=Math.cos(rotX),sRX=Math.sin(rotX),cRY=Math.cos(rotY+autoAngle),sRY=Math.sin(rotY+autoAngle);
+    const proj=pts.map(p=>{
+      let x=p.ox*cRY-p.oz*sRY,z=p.ox*sRY+p.oz*cRY;
+      let y=p.oy*cRX-z*sRX;z=p.oy*sRX+z*cRX;
+      const sc=(z+1.5)/2.5;
+      return{sx:CX+x*R*ps,sy:CY+y*R*ps,depth:(z+1)/2,sz:p.sz*sc,br:p.br*sc};
+    });
+    proj.sort((a,b)=>a.depth-b.depth);
+    proj.forEach(p=>{
+      const a=Math.min(p.br*(hovering?1:.75),1);
+      ctx.beginPath();ctx.arc(p.sx,p.sy,p.sz,0,Math.PI*2);
+      ctx.fillStyle=`rgba(255,255,255,${a.toFixed(2)})`;ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
